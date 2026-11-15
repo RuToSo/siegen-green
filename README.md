@@ -14,4 +14,6 @@ Fotos einmalig lokal holen (landen in `img/`):
 
 - `index.html`, `abo.html`, `impressum.html`, `datenschutz.html`, `agb.html`, `404.html`
 - `css/style.css` (Design), `css/fonts.css` + `fonts/` (Poppins lokal), `js/main.js`
-- `img/` Fotos, `favicon.svg`, `robots.txt`, `sitemap.xml`, `CNAME`
+- `img/` Fotos, `favicon.svg`, `robots.txt`, `CNAME`
+
+Vor dem Hochladen in `impressum.html` und `datenschutz.html` die Platzhalter in eckigen Klammern (Name, Anschrift) ausfüllen.

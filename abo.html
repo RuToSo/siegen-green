@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>B2C Abo vormerken – SiegenGreen Vertical Farms</title>
   <meta name="description" content="Frische Microgreens, Kräuter und essbare Blüten direkt nach Hause – jetzt für das SiegenGreen Abo vormerken lassen." />
@@ -352,6 +353,10 @@
 </head>
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <div class="projekt-hinweis" role="note">
+    <strong>Schulprojekt</strong><span class="ph-lang"> – SiegenGreen ist kein echtes Unternehmen. Es gibt keine Produkte, Preise oder Bestellungen.</span><span class="ph-kurz"> – kein echtes Unternehmen.</span>
+    <a href="/impressum.html">Mehr</a>
+  </div>
 
 
   <nav class="navbar scrolled" id="navbar">
@@ -404,6 +409,10 @@
         <!-- Main form card -->
         <div class="abo-form-card">
           <div id="aboFormWrap">
+            <div class="legal-note" style="margin-bottom:20px">
+              <strong>Nur zur Vorführung:</strong> Dieses Formular gehört zu einem Schulprojekt. Es gibt kein echtes Abo,
+              und Eingaben werden nicht gesendet oder gespeichert. Bitte keine echten Adressdaten eintragen.
+            </div>
             <form id="aboForm" novalidate>
 
               <!-- 1. Persönliche Daten -->
@@ -553,8 +562,8 @@
           <!-- Success state -->
           <div class="abo-success" id="aboSuccess">
             <div class="abo-success-icon">🌿</div>
-            <h2>Vielen Dank, Sie sind vorgemerkt!</h2>
-            <p>Ihr E-Mail-Programm hat sich mit der fertigen Voranmeldung geöffnet. Bitte dort noch auf „Senden“ tippen. Wir melden uns, sobald unser B2C-Abo-Modell startet.</p>
+            <h2>Vorführung abgeschlossen</h2>
+            <p>So würde die Bestätigung aussehen. Da SiegenGreen ein Schulprojekt ist, wurden Ihre Eingaben weder gesendet noch gespeichert.</p>
             <a href="index.html" class="btn btn-primary">Zurück zur Startseite</a>
           </div>
         </div>
@@ -604,7 +613,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-bottom" style="border-top: none; padding: 32px 0;">
-        <p>&copy; 2026 SiegenGreen Vertical Farms GmbH &nbsp;·&nbsp;
+        <p>&copy; 2026 SiegenGreen · Schulprojekt &nbsp;·&nbsp;
           <a href="impressum.html" style="color: rgba(255,255,255,0.6); text-decoration: underline;">Impressum</a> &nbsp;·&nbsp;
           <a href="datenschutz.html" style="color: rgba(255,255,255,0.6); text-decoration: underline;">Datenschutz</a> &nbsp;·&nbsp;
           <a href="agb.html" style="color: rgba(255,255,255,0.6); text-decoration: underline;">AGB</a>
@@ -667,28 +676,10 @@
       if (!valid) return;
 
       const btn = document.getElementById('aboSubmitText');
-      btn.textContent = 'E-Mail wird vorbereitet …';
+      btn.textContent = 'Einen Moment …';
       document.getElementById('aboSubmitBtn').disabled = true;
 
-      /* Kein Server: Die Voranmeldung geht als fertige E-Mail über das Mailprogramm raus */
-      const f = new FormData(this);
-      const produkte = [...checked].map(c => c.closest('.checkbox-item').textContent.trim()).join(', ');
-      const zeilen = [
-        'Voranmeldung B2C-Abo',
-        '',
-        'Name: ' + f.get('vorname') + ' ' + f.get('nachname'),
-        'E-Mail: ' + f.get('email'),
-        f.get('telefon') ? 'Telefon: ' + f.get('telefon') : null,
-        'Adresse: ' + f.get('strasse') + ' ' + f.get('hausnummer') + ', ' + f.get('plz') + ' ' + f.get('ort'),
-        f.get('lieferzusatz') ? 'Hinweis: ' + f.get('lieferzusatz') : null,
-        'Produkte: ' + produkte,
-      ];
-      for (const [k, v] of f.entries()) {
-        if (['vorname','nachname','email','telefon','strasse','hausnummer','plz','ort','lieferzusatz','produkte'].includes(k)) continue;
-        if (typeof v === 'string' && v.trim() && v !== 'on') zeilen.push(k.charAt(0).toUpperCase() + k.slice(1) + ': ' + v.trim());
-      }
-      window.location.href = 'mailto:siegen-green@rutoso.de?subject=' + encodeURIComponent('Abo-Voranmeldung ' + f.get('vorname') + ' ' + f.get('nachname')) +
-        '&body=' + encodeURIComponent(zeilen.filter(z => z !== null).join('\n'));
+      /* Schulprojekt: reine Vorführung, es werden keine Daten gesendet oder gespeichert */
       setTimeout(() => {
         document.getElementById('aboFormWrap').querySelector('form').style.display = 'none';
         document.getElementById('aboSuccess').classList.add('show');

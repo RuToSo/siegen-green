@@ -1669,3 +1669,22 @@ h5 { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spac
   background: var(--green-pale); border: 1px solid var(--green-subtle); border-radius: var(--radius-sm);
   padding: 12px 16px; font-size: 0.88rem; color: var(--text-mid); margin-bottom: 24px;
 }
+
+/* Hinweisleiste „Schulprojekt“ auf jeder Seite */
+:root { --hinweis-h: 36px; }
+body { padding-top: var(--hinweis-h); }
+.projekt-hinweis {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1001; height: var(--hinweis-h);
+  display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 16px;
+  background: var(--green-darker); color: var(--white); font-size: 0.8rem; line-height: 1.2;
+  white-space: nowrap; overflow: hidden;
+}
+.projekt-hinweis strong { color: var(--green-light); }
+.projekt-hinweis a { color: var(--white); text-decoration: underline; margin-left: 6px; }
+.projekt-hinweis .ph-kurz { display: none; }
+.navbar { top: var(--hinweis-h); }
+.skip-link:focus { top: calc(var(--hinweis-h) + 12px); }
+@media (max-width: 700px) {
+  .projekt-hinweis .ph-lang { display: none; }
+  .projekt-hinweis .ph-kurz { display: inline; }
+}
