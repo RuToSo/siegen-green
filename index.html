@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SiegenGreen – Regional wachsen. Frisch geliefert.</title>
+  <meta name="description" content="SiegenGreen Vertical Farms – Pestizidfreie Microgreens, Kräuter und essbare Blüten aus Südwestfalen. Ernte zu Kunde in 24 Stunden." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.siegengreen.de/" />
+  <meta property="og:title" content="SiegenGreen – Vertical Farm Microgreens & Kräuter aus Südwestfalen" />
+  <meta property="og:description" content="Pestizidfreie Microgreens, Kräuter und essbare Blüten aus Siegen-Wittgenstein. 24h-Lieferung, 95 % Wassereinsparung – die einzige Vertical Farm in Südwestfalen." />
+  <meta property="og:image" content="https://images.pexels.com/photos/15954902/pexels-photo-15954902.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="SiegenGreen Vertical Farms" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SiegenGreen – Vertical Farm Microgreens & Kräuter" />
+  <meta name="twitter:description" content="Pestizidfreie Microgreens, Kräuter und essbare Blüten aus Siegen-Wittgenstein. 24h-Lieferung direkt vom Feld." />
+  <meta name="twitter:image" content="https://images.pexels.com/photos/15954902/pexels-photo-15954902.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "SiegenGreen Vertical Farms GmbH",
+    "description": "Pestizidfreie Microgreens, Kräuter und essbare Blüten aus einer Vertical Farm in Siegen-Wittgenstein. B2B-Lieferung innerhalb von 24 Stunden nach der Ernte.",
+    "url": "https://www.siegen-green.rutoso.de",
+    "email": "info@siegengreen.de",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Siegen",
+      "addressRegion": "Nordrhein-Westfalen",
+      "addressCountry": "DE"
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Siegen-Wittgenstein" },
+      { "@type": "AdministrativeArea", "name": "Kreis Olpe" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Vertical Farm Produkte",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Microgreens", "description": "Junge Keimlinge mit intensivem Aroma – pestizidfreie, 24h-frisch." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Frische Kräuter", "description": "Basilikum, Koriander, Petersilie u. v. m. – ganzjährig verfügbar." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Essbare Blüten", "description": "Stiefmütterchen, Kapuzinerkresse & Saisonblüten für die gehobene Gastronomie." } }
+      ]
+    },
+    "founder": [
+      { "@type": "Person", "name": "Vivien Matisans" },
+      { "@type": "Person", "name": "Tobias Bäcker" },
+      { "@type": "Person", "name": "Melvin Leimbach" },
+      { "@type": "Person", "name": "Torbjörn Sonneborn" },
+      { "@type": "Person", "name": "Dominik Langenhan" }
+    ],
+    "foundingDate": "2025",
+    "keywords": "Microgreens Siegen, Vertical Farm Südwestfalen, Kräuter regional, essbare Blüten kaufen, pestizidfreie Lebensmittel NRW"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ───────────────────────── NAVIGATION ───────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <svg class="logo-icon" width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="50" cy="72" rx="30" ry="16" fill="#76C442"/>
+          <line x1="50" y1="72" x2="50" y2="20" stroke="#1E5C28" stroke-width="5" stroke-linecap="round"/>
+          <line x1="50" y1="55" x2="38" y2="40" stroke="#1E5C28" stroke-width="4" stroke-linecap="round"/>
+          <line x1="50" y1="55" x2="62" y2="40" stroke="#1E5C28" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="50" cy="18" rx="12" ry="16" fill="#76C442" transform="rotate(0 50 18)"/>
+          <ellipse cx="28" cy="36" rx="10" ry="14" fill="#76C442" transform="rotate(-30 28 36)"/>
+          <ellipse cx="72" cy="36" rx="10" ry="14" fill="#76C442" transform="rotate(30 72 36)"/>
+        </svg>
+        <span class="logo-text">SiegenGreen</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#produkte" class="nav-link">Produkte</a></li>
+        <li><a href="#vorteile" class="nav-link">Vorteile</a></li>
+        <li><a href="#nachhaltigkeit" class="nav-link">Nachhaltigkeit</a></li>
+        <li><a href="#team" class="nav-link">Team</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
+        <li><a href="#kontakt" class="btn btn-primary nav-cta">Jetzt anfragen</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ───────────────────────── HERO ───────────────────────── -->
+  <section class="hero" id="home">
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-content fade-in-up">
+      <span class="hero-badge">🌱 Vertical Farming · Südwestfalen</span>
+      <h1 class="hero-title">Regional wachsen.<br /><span class="gradient-text">Frisch geliefert.</span></h1>
+      <p class="hero-subtitle">Microgreens, Kräuter &amp; essbare Blüten – pestizidfreie Vertical Farm mitten in der Region Siegen-Wittgenstein. Von der Ernte bis zu Ihnen in 24&nbsp;Stunden.</p>
+      <div class="hero-actions">
+        <a href="#produkte" class="btn btn-primary btn-lg">Unsere Produkte</a>
+        <a href="#about" class="btn btn-outline btn-lg">Mehr erfahren</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>95 %</strong><span>Wassereinsparung</span></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><strong>24 h</strong><span>Ernte bis Kunde</span></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><strong>0</strong><span>Pestizide</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-plant">
+        <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Soil -->
+          <ellipse cx="150" cy="340" rx="100" ry="30" fill="#1E5C28" opacity="0.3"/>
+          <!-- Stem -->
+          <path d="M150 340 Q148 280 150 180" stroke="#1E5C28" stroke-width="8" stroke-linecap="round"/>
+          <!-- Branch left -->
+          <path d="M150 260 Q120 230 90 210" stroke="#1E5C28" stroke-width="5" stroke-linecap="round"/>
+          <!-- Branch right -->
+          <path d="M150 230 Q180 200 210 185" stroke="#1E5C28" stroke-width="5" stroke-linecap="round"/>
+          <!-- Leaf center top -->
+          <ellipse cx="150" cy="140" rx="28" ry="50" fill="#76C442" opacity="0.9"/>
+          <path d="M150 190 Q150 160 150 100" stroke="#1E5C28" stroke-width="2" opacity="0.5"/>
+          <!-- Leaf left -->
+          <ellipse cx="72" cy="195" rx="24" ry="40" fill="#76C442" transform="rotate(-35 72 195)" opacity="0.85"/>
+          <!-- Leaf right -->
+          <ellipse cx="225" cy="170" rx="24" ry="40" fill="#76C442" transform="rotate(35 225 170)" opacity="0.85"/>
+          <!-- Small leaves -->
+          <ellipse cx="110" cy="170" rx="16" ry="28" fill="#A8E063" transform="rotate(-20 110 170)" opacity="0.7"/>
+          <ellipse cx="192" cy="152" rx="16" ry="28" fill="#A8E063" transform="rotate(20 192 152)" opacity="0.7"/>
+          <!-- Glow circles -->
+          <circle cx="150" cy="140" r="55" fill="#76C442" opacity="0.08"/>
+          <circle cx="150" cy="140" r="75" fill="#76C442" opacity="0.05"/>
+        </svg>
+      </div>
+    </div>
+    <a href="#about" class="scroll-indicator" aria-label="Nach unten scrollen">
+      <div class="scroll-arrow"></div>
+    </a>
+  </section>
+
+  <!-- ───────────────────────── ÜBER UNS ───────────────────────── -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text fade-in-up">
+          <span class="section-badge">Über uns</span>
+          <h2 class="section-title">Frische aus der Region,<br />für die Region.</h2>
+          <p class="section-text">SiegenGreen Vertical Farms GmbH ist ein 2025 gegründetes Startup aus Siegen-Wittgenstein. Wir betreiben eine kompakte Vertical Farm in einer lokalen Industriehalle und produzieren ganzjährig hochwertige Microgreens, Kräuter und essbare Blüten – komplett ohne Pestizide, mit 95&nbsp;% weniger Wasserverbrauch und maximaler Frische.</p>
+          <p class="section-text">Unser B2B-Fokus richtet sich an Restaurants, Hotels und Einzelhandel in Südwestfalen. Durch kurze Lieferwege garantieren wir, dass Ihr Produkt binnen 24&nbsp;Stunden nach der Ernte bei Ihnen ist.</p>
+          <div class="about-badges">
+            <span class="badge badge-green">🌿 Pestizidfrei</span>
+            <span class="badge badge-green">⚡ 24h Lieferung</span>
+            <span class="badge badge-green">☀️ Ganzjährig</span>
+          </div>
+        </div>
+        <div class="about-visual fade-in-up delay-200">
+          <div class="about-cards-grid">
+            <div class="about-card">
+              <div class="about-card-icon">🏭</div>
+              <h4>Vertical Farm</h4>
+              <p>120&nbsp;m² effektive Anbaufläche auf 5 Ebenen</p>
+            </div>
+            <div class="about-card">
+              <div class="about-card-icon">👥</div>
+              <h4>5 Gründer</h4>
+              <p>Interdisziplinäres Team aus IT, Agrar & Business</p>
+            </div>
+            <div class="about-card">
+              <div class="about-card-icon">📍</div>
+              <h4>Südwestfalen</h4>
+              <p>Siegen-Wittgenstein & Kreis Olpe</p>
+            </div>
+            <div class="about-card">
+              <div class="about-card-icon">🏆</div>
+              <h4>First Mover</h4>
+              <p>Einzige Vertical Farm in der Region</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── WIE ES FUNKTIONIERT ───────────────────────── -->
+  <section class="process section bg-light" id="prozess">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-badge">Vom Samen bis zu Ihnen</span>
+        <h2 class="section-title">Vier Schritte.<br />Maximale Frische.</h2>
+        <p class="section-subtitle">Unser geschlossener Kreislauf garantiert höchste Qualität – kontrolliert, nachhaltig und blitzschnell.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step fade-in-up delay-100">
+          <div class="process-icon">🌱</div>
+          <div class="process-number">01</div>
+          <h3>Präzisionsanbau</h3>
+          <p>Aussaat unter optimierten Bedingungen – kontrolliertes Klima, LED-Vollspektrum-Licht und unser geschlossenes Hydroponiksystem ohne Pestizide.</p>
+        </div>
+        <div class="process-connector fade-in-up delay-150"></div>
+        <div class="process-step fade-in-up delay-200">
+          <div class="process-icon">✂️</div>
+          <div class="process-number">02</div>
+          <h3>Ernte auf Bestellung</h3>
+          <p>Wir ernten ausschließlich auf Bestellung – so erreicht Sie jedes Produkt im optimalen Reifezustand, nicht Tage zuvor geerntet.</p>
+        </div>
+        <div class="process-connector fade-in-up delay-250"></div>
+        <div class="process-step fade-in-up delay-300">
+          <div class="process-icon">📦</div>
+          <div class="process-number">03</div>
+          <h3>Nachhaltige Verpackung</h3>
+          <p>B2B in Mehrweg-Pfandgebinden, B2C in kompostierbaren Verpackungen. Kühlkettengerecht und ressourcenschonend.</p>
+        </div>
+        <div class="process-connector fade-in-up delay-350"></div>
+        <div class="process-step fade-in-up delay-400">
+          <div class="process-icon">🚚</div>
+          <div class="process-number">04</div>
+          <h3>Lieferung in 24 h</h3>
+          <p>Von der Ernte direkt zu Ihnen – innerhalb von 24 Stunden, regional und mit minimalem CO₂-Fußabdruck.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── PRODUKTE ───────────────────────── -->
+  <section class="products section" id="produkte">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-badge">Unser Sortiment</span>
+        <h2 class="section-title">Drei Produktlinien.<br />Höchste Qualität.</h2>
+        <p class="section-subtitle">Alle Produkte werden pestizid- und herbizidfreie unter kontrollierten Bedingungen produziert – ganzjährig, konsistent und innerhalb von 24 Stunden nach der Ernte geliefert.</p>
+      </div>
+      <div class="products-grid">
+
+        <div class="product-card fade-in-up delay-100">
+          <div class="product-icon-wrap" style="--card-color: #76C442">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="28" fill="#76C442" opacity="0.15"/>
+              <path d="M30 50 Q29 35 30 15" stroke="#1E5C28" stroke-width="3" stroke-linecap="round"/>
+              <ellipse cx="30" cy="18" rx="10" ry="14" fill="#76C442"/>
+              <ellipse cx="18" cy="28" rx="8" ry="12" fill="#76C442" transform="rotate(-25 18 28)"/>
+              <ellipse cx="42" cy="28" rx="8" ry="12" fill="#76C442" transform="rotate(25 42 28)"/>
+            </svg>
+          </div>
+          <div class="product-content">
+            <span class="product-tag">Bestseller</span>
+            <h3 class="product-name">Microgreens</h3>
+            <p class="product-desc">Junge Keimlinge mit intensivem Aroma und hohem Vitamin- & Mineralstoffgehalt. Ideal für gehobene Gastronomie und Feinkost.</p>
+            <ul class="product-varieties">
+              <li>Erbse &amp; Sonnenblume</li>
+              <li>Radieschen &amp; Rote Beete</li>
+              <li>Brokkoli &amp; Senf</li>
+            </ul>
+            <div class="product-footer">
+              <span class="product-price">60 – 80 €/kg</span>
+              <a href="#kontakt" class="btn btn-sm btn-primary">Anfragen</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card fade-in-up delay-200">
+          <div class="product-icon-wrap" style="--card-color: #3E9C35">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="28" fill="#3E9C35" opacity="0.15"/>
+              <path d="M30 50 Q30 40 30 20" stroke="#1E5C28" stroke-width="3" stroke-linecap="round"/>
+              <path d="M30 35 Q20 28 15 22 Q22 22 28 30" fill="#3E9C35"/>
+              <path d="M30 28 Q40 21 45 15 Q38 17 32 25" fill="#3E9C35"/>
+              <path d="M30 42 Q22 36 18 30 Q24 31 29 38" fill="#3E9C35"/>
+            </svg>
+          </div>
+          <div class="product-content">
+            <span class="product-tag">Dauerläufer</span>
+            <h3 class="product-name">Frische Kräuter</h3>
+            <p class="product-desc">Überlegen gegenüber Importware durch maximale Frische, längere Haltbarkeit und aromatische Intensität. Direkt aus der Region.</p>
+            <ul class="product-varieties">
+              <li>Basilikum &amp; Koriander</li>
+              <li>Petersilie &amp; Minze</li>
+              <li>Schnittlauch &amp; Dill</li>
+            </ul>
+            <div class="product-footer">
+              <span class="product-price">15 – 25 €/kg</span>
+              <a href="#kontakt" class="btn btn-sm btn-primary">Anfragen</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card fade-in-up delay-300">
+          <div class="product-icon-wrap" style="--card-color: #E8A020">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="28" fill="#E8A020" opacity="0.15"/>
+              <circle cx="30" cy="30" r="8" fill="#E8C030"/>
+              <path d="M30 14 Q33 22 30 22 Q27 22 30 14Z" fill="#FF6B8A"/>
+              <path d="M46 30 Q38 27 38 30 Q38 33 46 30Z" fill="#76C442"/>
+              <path d="M30 46 Q27 38 30 38 Q33 38 30 46Z" fill="#FF8FAF"/>
+              <path d="M14 30 Q22 33 22 30 Q22 27 14 30Z" fill="#3E9C35"/>
+              <path d="M41.2 18.8 Q35 24 36.5 26.5 Q39 28 41.2 18.8Z" fill="#FF6B8A"/>
+              <path d="M41.2 41.2 Q35 36 36.5 33.5 Q39 32 41.2 41.2Z" fill="#76C442"/>
+              <path d="M18.8 41.2 Q25 36 23.5 33.5 Q21 32 18.8 41.2Z" fill="#FF8FAF"/>
+              <path d="M18.8 18.8 Q25 24 23.5 26.5 Q21 28 18.8 18.8Z" fill="#3E9C35"/>
+            </svg>
+          </div>
+          <div class="product-content">
+            <span class="product-tag product-tag-gold">Premium</span>
+            <h3 class="product-name">Essbare Blüten</h3>
+            <p class="product-desc">Heiß begehrt in der gehobenen Gastronomie. Ganzjährig verfügbar, konsistente Qualität – ein Alleinstellungsmerkmal für Ihre Küche.</p>
+            <ul class="product-varieties">
+              <li>Stiefmütterchen &amp; Kapuzinerkresse</li>
+              <li>Borretsch &amp; Ringelblume</li>
+              <li>Weitere Saisonblüten</li>
+            </ul>
+            <div class="product-footer">
+              <span class="product-price">80 – 120 €/kg</span>
+              <a href="#kontakt" class="btn btn-sm btn-primary">Anfragen</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── VORTEILE ───────────────────────── -->
+  <section class="advantages section" id="vorteile">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-badge">Warum SiegenGreen</span>
+        <h2 class="section-title">Fünf Gründe,<br />die überzeugen.</h2>
+      </div>
+      <div class="advantages-grid">
+        <div class="advantage-card fade-in-up delay-100">
+          <div class="advantage-icon">🌿</div>
+          <h3>100 % Pestizidfrei</h3>
+          <p>Kein Einsatz von Pestiziden oder Herbiziden. Vollständige Rückverfolgbarkeit und angestrebte Bio-Zertifizierung.</p>
+        </div>
+        <div class="advantage-card fade-in-up delay-150">
+          <div class="advantage-icon">💧</div>
+          <h3>95 % Wassereinsparung</h3>
+          <p>Unser geschlossenes Hydroponiksystem verbraucht 95&nbsp;% weniger Wasser als konventioneller Freilandanbau.</p>
+        </div>
+        <div class="advantage-card fade-in-up delay-200">
+          <div class="advantage-icon">🚚</div>
+          <h3>24h Lieferung</h3>
+          <p>Von der Ernte bis zu Ihnen in weniger als 24 Stunden. Maximale Frische, längere Haltbarkeit, überlegener Geschmack.</p>
+        </div>
+        <div class="advantage-card fade-in-up delay-250">
+          <div class="advantage-icon">☀️</div>
+          <h3>Ganzjährige Verfügbarkeit</h3>
+          <p>Unabhängig von Jahreszeit, Wetter und globalen Lieferketten. Gleichbleibende Qualität 365 Tage im Jahr.</p>
+        </div>
+        <div class="advantage-card fade-in-up delay-300">
+          <div class="advantage-icon">📍</div>
+          <h3>Regionale Exklusivität</h3>
+          <p>Die einzige Vertical Farm in Südwestfalen. First-Mover-Vorteil sichert Ihnen Zugang zu einem einzigartigen lokalen Produkt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── FAQ ───────────────────────── -->
+  <section class="faq section bg-light" id="faq">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-badge">Häufige Fragen</span>
+        <h2 class="section-title">Sie haben Fragen?<br />Wir haben Antworten.</h2>
+        <p class="section-subtitle">Die wichtigsten Fragen unserer B2B-Partner – übersichtlich beantwortet.</p>
+      </div>
+      <div class="faq-list fade-in-up delay-100">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Wie kann ich als Restaurantbetreiber bestellen?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Nutzen Sie einfach unser Kontaktformular oder schreiben Sie uns direkt an <strong>info@siegengreen.de</strong>. Wir erstellen Ihnen ein individuelles Angebot und besprechen Liefermengen, Rhythmus und Produktauswahl persönlich.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Gibt es Mindestbestellmengen?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Für B2B-Kunden arbeiten wir mit individuell vereinbarten Mindestmengen, die auf Ihre Bedürfnisse abgestimmt sind. Wir sind ein junges Startup und schätzen flexible Partnerschaften – sprechen Sie uns einfach an!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>In welchem Liefergebiet sind Sie aktiv?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Derzeit beliefern wir Kunden in der Region <strong>Siegen-Wittgenstein und Kreis Olpe</strong> (Südwestfalen). Durch kurze Lieferwege können wir die 24-Stunden-Frische garantieren. Für Anfragen außerhalb dieser Region nehmen Sie bitte Kontakt auf.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Sind Ihre Produkte Bio-zertifiziert?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Wir produzieren bereits heute vollständig <strong>ohne Pestizide und Herbizide</strong>. Die offizielle Bio-Zertifizierung wird aktuell angestrebt und ist eines unserer nächsten Unternehmensziele. Auf Anfrage stellen wir gerne unsere Produktionsdokumentation bereit.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Wie lange sind die Produkte nach Lieferung haltbar?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Durch die 24-Stunden-Lieferung direkt nach der Ernte sind unsere Microgreens und Kräuter deutlich länger haltbar als importierte Ware. Je nach Produkt liegt die Haltbarkeit bei gekühlter Lagerung (2–4 °C) bei <strong>5–10 Tagen</strong> – gegenüber 1–3 Tagen bei konventionellem Importprodukt.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Wie funktioniert das Hydroponiksystem genau?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Unsere Pflanzen wachsen in einem <strong>geschlossenen Kreislaufsystem</strong> ohne Erde – die Wurzeln werden direkt mit nährstoffreichem Wasser versorgt. Das System recycelt das Wasser vollständig, was den Verbrauch um 95 % gegenüber konventionellem Anbau reduziert. LED-Vollspektrum-Lichter simulieren optimales Sonnenlicht für maximales Wachstum.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Bieten Sie Rabatte bei größeren Abnahmemengen?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Ja, bei regelmäßigen und größeren Bestellmengen bieten wir individuelle Partnerkonditionen an. Wir setzen auf langfristige Partnerschaften und erarbeiten gemeinsam ein Preismodell, das für beide Seiten fair ist. Sprechen Sie uns direkt an!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── GALERIE ───────────────────────── -->
+  <section class="gallery section bg-light" id="farm">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-badge">Einblick</span>
+        <h2 class="section-title">Unsere Farm.<br />120 m² Präzisionsanbau.</h2>
+        <p class="section-subtitle">Auf einer Grundfläche von 120 m² erreichen wir durch unser 5-Ebenen-Regalsystem eine effektive Anbaufläche von 600 m² – ganzjährig, vollautomatisiert und pestizidfreie.</p>
+      </div>
+      <div class="gallery-grid fade-in-up">
+        <div class="gallery-img-wrap gallery-main">
+          <img src="https://images.pexels.com/photos/15954902/pexels-photo-15954902.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&fit=crop" alt="Vertikale Anbauregale mit LED-Beleuchtung" loading="lazy" />
+          <div class="gallery-caption">Vertikale Anbauregale mit LED-Vollspektrum-Beleuchtung</div>
+        </div>
+        <div class="gallery-side">
+          <div class="gallery-img-wrap">
+            <img src="https://images.pexels.com/photos/3296644/pexels-photo-3296644.jpeg?auto=compress&cs=tinysrgb&w=800&h=380&fit=crop" alt="Frische Microgreens kurz vor der Ernte" loading="lazy" />
+            <div class="gallery-caption">Microgreens – 10 Tage nach der Aussaat</div>
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=800&h=380&q=80" alt="Frische Kräuter im Hydroponiksystem" loading="lazy" />
+            <div class="gallery-caption">Kräuteranbau im geschlossenen Hydroponiksystem</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-row-2 fade-in-up delay-200">
+        <div class="gallery-img-wrap">
+          <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=800&h=460&q=80" alt="Pflanzen unter LED-Wachstumslicht" loading="lazy" />
+          <div class="gallery-caption">LED-Lichtspektrum für optimales Pflanzenwachstum</div>
+        </div>
+        <div class="gallery-img-wrap">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&h=460&q=80" alt="Modernes Büro und Operations-Center" loading="lazy" />
+          <div class="gallery-caption">Unser Büro &amp; digitales Operations-Center</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── NACHHALTIGKEIT / ZAHLEN ───────────────────────── -->
+  <section class="stats section bg-dark" id="nachhaltigkeit">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-badge badge-light">Nachhaltigkeit &amp; Zahlen</span>
+        <h2 class="section-title text-light">Zahlen, die für sich sprechen.</h2>
+        <p class="section-subtitle text-light-muted">Unsere Produktionsmethode schont Ressourcen, sichert Qualität und stärkt die regionale Wertschöpfung.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card fade-in-up delay-100">
+          <div class="stat-number" data-target="95" data-suffix="%">0%</div>
+          <div class="stat-label">Wassereinsparung<br />vs. Freilandanbau</div>
+        </div>
+        <div class="stat-card fade-in-up delay-200">
+          <div class="stat-number" data-target="24" data-suffix="h">0h</div>
+          <div class="stat-label">Ernte bis<br />zum Kunden</div>
+        </div>
+        <div class="stat-card fade-in-up delay-300">
+          <div class="stat-number" data-target="600" data-suffix=" m²">0 m²</div>
+          <div class="stat-label">Effektive Anbaufläche<br />(5 Ebenen)</div>
+        </div>
+        <div class="stat-card fade-in-up delay-400">
+          <div class="stat-number" data-target="0" data-suffix="">0</div>
+          <div class="stat-label">Pestizide<br />&amp; Herbizide</div>
+        </div>
+      </div>
+      <div class="sustainability-features fade-in-up delay-300">
+        <div class="sust-item">
+          <span class="sust-icon">♻️</span>
+          <span>Mehrweg-Verpackung im B2B-Pfandsystem</span>
+        </div>
+        <div class="sust-item">
+          <span class="sust-icon">🏭</span>
+          <span>Nutzung industrieller Abwärme benachbarter Betriebe</span>
+        </div>
+        <div class="sust-item">
+          <span class="sust-icon">🌱</span>
+          <span>Angestrebte Bio-Zertifizierung</span>
+        </div>
+        <div class="sust-item">
+          <span class="sust-icon">📦</span>
+          <span>Kompostierbare Verpackung im B2C-Bereich</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── TEAM ───────────────────────── -->
+  <section class="team section bg-light" id="team">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-badge">Das Team</span>
+        <h2 class="section-title">Fünf Köpfe.<br />Eine Vision.</h2>
+        <p class="section-subtitle">Unser interdisziplinäres Gründerteam vereint Expertise aus Agrarwirtschaft, IT, Finanzen, Logistik und Marketing.</p>
+      </div>
+      <div class="team-grid">
+
+        <div class="team-card fade-in-up delay-100">
+          <div class="team-avatar">
+            <img src="https://api.dicebear.com/7.x/personas/svg?seed=VivienMatisans&backgroundColor=d4edda" alt="Vivien Matisans" />
+          </div>
+          <h3 class="team-name">Vivien Matisans</h3>
+          <span class="team-role">CEO &amp; Marketing</span>
+          <p class="team-desc">Unternehmensführung, Kundenakquise und Markenidentität. Das Gesicht von SiegenGreen nach außen.</p>
+        </div>
+
+        <div class="team-card fade-in-up delay-150">
+          <div class="team-avatar">
+            <img src="https://api.dicebear.com/7.x/personas/svg?seed=TobiasBaecker&backgroundColor=cce5ff" alt="Tobias Bäcker" />
+          </div>
+          <h3 class="team-name">Tobias Bäcker</h3>
+          <span class="team-role">Finanzen &amp; Controlling</span>
+          <p class="team-desc">Finanzplanung, Buchhaltung und Bankbeziehungen. Hält die wirtschaftliche Steuerung im Griff.</p>
+        </div>
+
+        <div class="team-card fade-in-up delay-200">
+          <div class="team-avatar">
+            <img src="https://api.dicebear.com/7.x/personas/svg?seed=MelvinLeimbach&backgroundColor=d4edda" alt="Melvin Leimbach" />
+          </div>
+          <h3 class="team-name">Melvin Leimbach</h3>
+          <span class="team-role">Produktion &amp; Technik</span>
+          <p class="team-desc">Hydroponik, LED-Beleuchtung, Klimasteuerung und Systemwartung – das technische Herzstück der Farm.</p>
+        </div>
+
+        <div class="team-card fade-in-up delay-250">
+          <div class="team-avatar">
+            <img src="https://api.dicebear.com/7.x/personas/svg?seed=TorbjornSonneborn&backgroundColor=fff3cd" alt="Torbjörn Sonneborn" />
+          </div>
+          <h3 class="team-name">Torbjörn Sonneborn</h3>
+          <span class="team-role">Logistik &amp; Distribution</span>
+          <p class="team-desc">Lieferkettenmanagement, Routenoptimierung und Einhaltung der Kühlkette bis zum letzten Kilometer.</p>
+        </div>
+
+        <div class="team-card fade-in-up delay-300">
+          <div class="team-avatar">
+            <img src="https://api.dicebear.com/7.x/personas/svg?seed=DominikLangenhan&backgroundColor=e2d9f3" alt="Dominik Langenhan" />
+          </div>
+          <h3 class="team-name">Dominik Langenhan</h3>
+          <span class="team-role">IT &amp; Digitalisierung</span>
+          <p class="team-desc">Sensorsysteme, Website-Entwicklung und Social-Media-Marketing. Digitale Infrastruktur der Farm.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── TESTIMONIALS ───────────────────────── -->
+  <section class="testimonials section" id="referenzen">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-badge">Kundenstimmen</span>
+        <h2 class="section-title">Was unsere Partner sagen.</h2>
+        <p class="section-subtitle">Stimmen aus der Gastronomie und dem Einzelhandel – frisch und ungeschönt.</p>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card fade-in-up delay-100">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote class="testimonial-quote">
+            „Seit wir SiegenGreen-Microgreens auf der Karte haben, fragen Gäste gezielt danach. Die Qualität ist konstant – kein Vergleich zu importierter Ware. Und die 24-Stunden-Lieferung macht Planung so viel einfacher."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">🍽️</div>
+            <div>
+              <strong>Marcus Held</strong>
+              <span>Küchenchef, Restaurant Steinbach – Siegen</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-in-up delay-200">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote class="testimonial-quote">
+            „Als Hotel legen wir großen Wert auf regionale Produkte. SiegenGreen liefert zuverlässig, die Verpackung ist nachhaltig und der Kontakt ist persönlich – genau das schätzen wir an lokalen Partnern."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">🏨</div>
+            <div>
+              <strong>Sandra Krömer</strong>
+              <span>F&B Managerin, Parkhotel Olpe</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-in-up delay-300">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote class="testimonial-quote">
+            „Unsere Kunden fragen explizit nach essbare Blüten – ganzjährig verfügbar zu haben ist ein Alleinstellungsmerkmal im Feinkostsortiment. SiegenGreen ist für uns ein unverzichtbarer Partner geworden."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">🛒</div>
+            <div>
+              <strong>Thomas Bauer</strong>
+              <span>Inhaber, Feinkost Bauer – Kreuztal</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── KONTAKT ───────────────────────── -->
+  <section class="contact section" id="kontakt">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-badge">Kontakt</span>
+        <h2 class="section-title">Interesse geweckt?<br />Sprechen wir.</h2>
+        <p class="section-subtitle">Ob Restaurant, Hotel oder Einzelhandel – wir freuen uns auf Ihre Anfrage und erstellen Ihnen ein individuelles Angebot.</p>
+      </div>
+      <div class="contact-grid">
+        <form class="contact-form fade-in-up delay-100" id="contactForm">
+          <div class="form-group">
+            <label for="name">Name / Unternehmen</label>
+            <input type="text" id="name" name="name" placeholder="Ihr Name oder Firmenname" required />
+          </div>
+          <div class="form-group">
+            <label for="email">E-Mail-Adresse</label>
+            <input type="email" id="email" name="email" placeholder="ihre@email.de" required />
+          </div>
+          <div class="form-group">
+            <label for="type">Ich bin …</label>
+            <select id="type" name="type">
+              <option value="">Bitte wählen</option>
+              <option value="restaurant">Restaurant / Hotel</option>
+              <option value="retail">Einzelhandel / Supermarkt</option>
+              <option value="market">Wochenmarkt / Feinkost</option>
+              <option value="other">Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Ihre Nachricht</label>
+            <textarea id="message" name="message" rows="5" placeholder="Was interessiert Sie? Welche Produkte oder Mengen benötigen Sie?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span>Nachricht senden</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="form-note">* Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nicht an Dritte weitergegeben.</p>
+        </form>
+
+        <div class="contact-map fade-in-up delay-150">
+          <div class="map-header">
+            <span class="section-badge" style="margin-bottom:12px;">📍 Liefergebiet</span>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">Wir beliefern die Region <strong>Siegen-Wittgenstein</strong> und den <strong>Kreis Olpe</strong> — innerhalb von 24 h nach der Ernte.</p>
+          </div>
+          <div class="map-wrapper">
+            <iframe
+              title="Liefergebiet SiegenGreen – Siegen-Wittgenstein & Kreis Olpe"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=7.6%2C50.7%2C8.4%2C51.1&layer=mapnik&marker=50.8748%2C8.0243"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+            ></iframe>
+          </div>
+          <a class="map-link" href="https://www.openstreetmap.org/#map=11/50.8748/8.0243" target="_blank" rel="noopener noreferrer">
+            Größere Karte ansehen ↗
+          </a>
+        </div>
+
+        <div class="contact-info fade-in-up delay-200">
+          <div class="contact-info-card">
+            <div class="contact-info-icon">📍</div>
+            <div>
+              <h4>Standort</h4>
+              <p>Region Siegen-Wittgenstein<br />& Kreis Olpe, Südwestfalen</p>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-icon">📧</div>
+            <div>
+              <h4>E-Mail</h4>
+              <p>siegen-green@rutoso.de</p>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-icon">🏢</div>
+            <div>
+              <h4>B2B-Partner</h4>
+              <p>Wir beliefern Restaurants, Hotels, Caterer, Supermärkte &amp; Biomärkte in der Region.</p>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-icon">🕐</div>
+            <div>
+              <h4>Lieferzeiten</h4>
+              <p>Mo–Fr, innerhalb von 24&nbsp;h nach Ernte. Flexible Lieferplanung möglich.</p>
+            </div>
+          </div>
+          <div class="contact-cta-box">
+            <h4>Interesse an einem B2C-Abo?</h4>
+            <p>Frische Microgreens &amp; Kräuter direkt nach Hause – unser Subscription-Modell ist in Planung. Jetzt vormerken lassen!</p>
+            <a href="abo.html" class="btn btn-white btn-sm">Vormerken lassen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── FOOTER ───────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo footer-logo">
+            <svg class="logo-icon" width="32" height="32" viewBox="0 0 100 100" fill="none">
+              <ellipse cx="50" cy="72" rx="30" ry="16" fill="#76C442"/>
+              <line x1="50" y1="72" x2="50" y2="20" stroke="#1E5C28" stroke-width="5" stroke-linecap="round"/>
+              <line x1="50" y1="55" x2="38" y2="40" stroke="#1E5C28" stroke-width="4" stroke-linecap="round"/>
+              <line x1="50" y1="55" x2="62" y2="40" stroke="#1E5C28" stroke-width="4" stroke-linecap="round"/>
+              <ellipse cx="50" cy="18" rx="12" ry="16" fill="#76C442"/>
+              <ellipse cx="28" cy="36" rx="10" ry="14" fill="#76C442" transform="rotate(-30 28 36)"/>
+              <ellipse cx="72" cy="36" rx="10" ry="14" fill="#76C442" transform="rotate(30 72 36)"/>
+            </svg>
+            <span class="logo-text">SiegenGreen</span>
+          </a>
+          <p class="footer-tagline">Regional wachsen.<br />Frisch geliefert.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <h5>Produkte</h5>
+          <ul>
+            <li><a href="#produkte">Microgreens</a></li>
+            <li><a href="#produkte">Frische Kräuter</a></li>
+            <li><a href="#produkte">Essbare Blüten</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h5>Unternehmen</h5>
+          <ul>
+            <li><a href="#about">Über uns</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h5>Rechtliches</h5>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="agb.html">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 SiegenGreen Vertical Farms GmbH · Siegen-Wittgenstein · Alle Rechte vorbehalten</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ───────────────────────── COOKIE BANNER ───────────────────────── -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie-Einstellungen">
+    <div class="cookie-banner-inner">
+      <div class="cookie-text">
+        <span class="cookie-icon">🍪</span>
+        <div>
+          <strong>Wir verwenden Cookies</strong>
+          <p>Diese Website verwendet technisch notwendige Cookies, um den Betrieb sicherzustellen. Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+        </div>
+      </div>
+      <div class="cookie-actions">
+        <button class="btn btn-outline-dark btn-sm" id="cookieDecline">Nur notwendige</button>
+        <button class="btn btn-primary btn-sm" id="cookieAccept">Alle akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Nach oben scrollen">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 15V5M5 10l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <!-- Form Success Toast -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">✅</span>
+    <span>Nachricht erfolgreich gesendet! Wir melden uns bald.</span>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

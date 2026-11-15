@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B2C Abo vormerken – SiegenGreen Vertical Farms</title>
+  <meta name="description" content="Frische Microgreens, Kräuter und essbare Blüten direkt nach Hause – jetzt für das SiegenGreen Abo vormerken lassen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Abo-page specific styles ── */
+    .abo-hero {
+      background: linear-gradient(135deg, var(--green-darker) 0%, var(--green-dark) 60%, #3d9944 100%);
+      padding: 140px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .abo-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 50% 100%, rgba(118,196,66,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .abo-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      letter-spacing: 0.03em;
+    }
+    .abo-hero h1 {
+      color: var(--white);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .abo-hero p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.75;
+      position: relative;
+    }
+    .abo-hero-perks {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      position: relative;
+    }
+    .abo-perk {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .abo-perk-icon {
+      width: 28px;
+      height: 28px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    /* ── Form layout ── */
+    .abo-form-section {
+      padding: 80px 0 100px;
+      background: var(--green-pale);
+    }
+    .abo-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    .abo-form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 48px 44px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--green-subtle);
+    }
+    .form-section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--green-subtle);
+      margin-bottom: 20px;
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .form-section-title:first-child { margin-top: 0; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-row-3 {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      margin-bottom: 6px;
+    }
+    .form-group label .required {
+      color: #e05555;
+      margin-left: 2px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #dde8dd;
+      border-radius: var(--radius-sm);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.87rem;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: var(--transition);
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--green-primary);
+      box-shadow: 0 0 0 3px rgba(118, 196, 66, 0.15);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    /* Checkbox group */
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green-pale);
+      border: 1.5px solid var(--green-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      user-select: none;
+    }
+    .checkbox-item:hover { border-color: var(--green-primary); background: #edf7e5; }
+    .checkbox-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--green-dark);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+    }
+    .checkbox-item input[type="checkbox"]:focus { box-shadow: none; }
+    .checkbox-item.checked { border-color: var(--green-primary); background: #edf7e5; }
+
+    /* Rating stars / frequency selector */
+    .freq-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .freq-option {
+      flex: 1;
+      min-width: 100px;
+      text-align: center;
+      background: var(--green-pale);
+      border: 1.5px solid var(--green-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      user-select: none;
+    }
+    .freq-option:hover, .freq-option.active {
+      border-color: var(--green-primary);
+      background: #edf7e5;
+      color: var(--green-dark);
+    }
+    .freq-option-icon { font-size: 1.3rem; display: block; margin-bottom: 4px; }
+
+    /* Consent checkbox */
+    .consent-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: var(--green-pale);
+      border: 1.5px solid var(--green-subtle);
+      border-radius: var(--radius-sm);
+      margin-top: 24px;
+    }
+    .consent-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--green-dark);
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+    }
+    .consent-row label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      cursor: pointer;
+    }
+    .consent-row a { color: var(--green-dark); text-decoration: underline; }
+
+    /* Submit button */
+    .abo-submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--green-dark) 0%, #2a7a38 100%);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .abo-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(30, 92, 40, 0.35);
+    }
+    .abo-submit-btn:active { transform: translateY(0); }
+
+    /* Sidebar */
+    .abo-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .abo-info-card {
+      background: var(--white);
+      border: 1px solid var(--green-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .abo-info-card h3 {
+      font-size: 0.95rem;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .abo-info-card p, .abo-info-card li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .abo-info-card ul { padding-left: 16px; list-style: disc; }
+    .abo-info-card ul li { margin-bottom: 4px; }
+    .abo-highlight-card {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #2a7a38 100%);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      color: var(--white);
+    }
+    .abo-highlight-card h3 { color: var(--white); margin-bottom: 10px; font-size: 0.95rem; }
+    .abo-highlight-card p { color: rgba(255,255,255,0.8); font-size: 0.82rem; line-height: 1.7; }
+    .price-preview {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.75);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .price-row:last-child { border-bottom: none; }
+    .price-row strong { color: var(--green-light); }
+
+    /* Success overlay */
+    .abo-success {
+      display: none;
+      text-align: center;
+      padding: 60px 32px;
+    }
+    .abo-success.show { display: block; }
+    .abo-success-icon { font-size: 4rem; margin-bottom: 16px; }
+    .abo-success h2 { color: var(--green-dark); margin-bottom: 12px; }
+    .abo-success p { color: var(--text-muted); margin-bottom: 24px; }
+
+    @media (max-width: 900px) {
+      .abo-grid { grid-template-columns: 1fr; }
+      .abo-sidebar { order: -1; }
+      .abo-form-card { padding: 32px 24px; }
+    }
+    @media (max-width: 600px) {
+      .form-row, .form-row-3 { grid-template-columns: 1fr; }
+      .checkbox-grid { grid-template-columns: 1fr; }
+      .abo-hero-perks { flex-direction: column; align-items: center; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-icon" width="36" height="36" viewBox="0 0 100 100" fill="none">
+          <ellipse cx="50" cy="72" rx="30" ry="16" fill="#76C442"/>
+          <line x1="50" y1="72" x2="50" y2="20" stroke="#1E5C28" stroke-width="5" stroke-linecap="round"/>
+          <line x1="50" y1="55" x2="38" y2="40" stroke="#1E5C28" stroke-width="4" stroke-linecap="round"/>
+          <line x1="50" y1="55" x2="62" y2="40" stroke="#1E5C28" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="50" cy="18" rx="12" ry="16" fill="#76C442"/>
+          <ellipse cx="28" cy="36" rx="10" ry="14" fill="#76C442" transform="rotate(-30 28 36)"/>
+          <ellipse cx="72" cy="36" rx="10" ry="14" fill="#76C442" transform="rotate(30 72 36)"/>
+        </svg>
+        <span class="logo-text" style="color: var(--green-dark)">SiegenGreen</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#produkte" class="nav-link">Produkte</a></li>
+        <li><a href="index.html#vorteile" class="nav-link">Vorteile</a></li>
+        <li><a href="index.html#team" class="nav-link">Team</a></li>
+        <li><a href="index.html#kontakt" class="btn btn-primary nav-cta">B2B anfragen</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <div class="abo-hero">
+    <div class="container">
+      <span class="abo-hero-badge">🥬 B2C Subscription – demnächst verfügbar</span>
+      <h1>Frische direkt<br /><span class="gradient-text">an Ihre Haustür.</span></h1>
+      <p>Melden Sie sich jetzt für unser Abo-Modell vor! Frische Microgreens, Kräuter und essbare Blüten – wöchentlich, zweiwöchentlich oder monatlich geliefert, solange vorrätig.</p>
+      <div class="abo-hero-perks">
+        <div class="abo-perk"><span class="abo-perk-icon">🌿</span> Pestizidfreie Produkte</div>
+        <div class="abo-perk"><span class="abo-perk-icon">📦</span> Kompostierbare Verpackung</div>
+        <div class="abo-perk"><span class="abo-perk-icon">🚚</span> Direktlieferung in 24 h</div>
+        <div class="abo-perk"><span class="abo-perk-icon">🔄</span> Flexible Abo-Laufzeit</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FORM ── -->
+  <section class="abo-form-section">
+    <div class="container">
+      <div class="abo-grid">
+
+        <!-- Main form card -->
+        <div class="abo-form-card">
+          <div id="aboFormWrap">
+            <form id="aboForm" novalidate>
+
+              <!-- 1. Persönliche Daten -->
+              <div class="form-section-title">
+                <span>👤</span> Persönliche Daten
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="vorname">Vorname <span class="required">*</span></label>
+                  <input type="text" id="vorname" name="vorname" placeholder="Max" required />
+                </div>
+                <div class="form-group">
+                  <label for="nachname">Nachname <span class="required">*</span></label>
+                  <input type="text" id="nachname" name="nachname" placeholder="Mustermann" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="abo-email">E-Mail-Adresse <span class="required">*</span></label>
+                  <input type="email" id="abo-email" name="email" placeholder="max@beispiel.de" required />
+                </div>
+                <div class="form-group">
+                  <label for="telefon">Telefon (optional)</label>
+                  <input type="tel" id="telefon" name="telefon" placeholder="+49 271 ..." />
+                </div>
+              </div>
+
+              <!-- 2. Lieferadresse -->
+              <div class="form-section-title">
+                <span>📍</span> Lieferadresse
+              </div>
+              <div class="form-row-3">
+                <div class="form-group">
+                  <label for="strasse">Straße <span class="required">*</span></label>
+                  <input type="text" id="strasse" name="strasse" placeholder="Musterstraße" required />
+                </div>
+                <div class="form-group">
+                  <label for="hausnummer">Hausnr. <span class="required">*</span></label>
+                  <input type="text" id="hausnummer" name="hausnummer" placeholder="12 a" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="plz">Postleitzahl <span class="required">*</span></label>
+                  <input type="text" id="plz" name="plz" placeholder="57072" maxlength="5" required />
+                </div>
+                <div class="form-group">
+                  <label for="ort">Ort <span class="required">*</span></label>
+                  <input type="text" id="ort" name="ort" placeholder="Siegen" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="lieferzusatz">Adresszusatz / Lieferhinweis (optional)</label>
+                <input type="text" id="lieferzusatz" name="lieferzusatz" placeholder="z. B. Hintereingang, Paketbox, Etage ..." />
+              </div>
+
+              <!-- 3. Produktwunsch -->
+              <div class="form-section-title">
+                <span>🌱</span> Gewünschte Produkte
+              </div>
+              <div class="form-group">
+                <label>Welche Produkte interessieren Sie? <span class="required">*</span></label>
+                <div class="checkbox-grid">
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="produkte" value="microgreens" />
+                    🌿 Microgreens (60–80 €/kg)
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="produkte" value="kraeuter" />
+                    🌿 Frische Kräuter (15–25 €/kg)
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="produkte" value="blueten" />
+                    🌸 Essbare Blüten (80–120 €/kg)
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="produkte" value="mix" />
+                    📦 Überraschungs-Mix-Box
+                  </label>
+                </div>
+              </div>
+
+              <!-- 4. Lieferrhythmus -->
+              <div class="form-section-title">
+                <span>🔄</span> Lieferrhythmus
+              </div>
+              <div class="form-group">
+                <label>Wie oft möchten Sie beliefert werden? <span class="required">*</span></label>
+                <div class="freq-options" id="freqOptions">
+                  <div class="freq-option" data-value="wöchentlich">
+                    <span class="freq-option-icon">📅</span>Wöchentlich
+                  </div>
+                  <div class="freq-option" data-value="zweiwöchentlich">
+                    <span class="freq-option-icon">🗓️</span>Alle 2 Wochen
+                  </div>
+                  <div class="freq-option" data-value="monatlich">
+                    <span class="freq-option-icon">📆</span>Monatlich
+                  </div>
+                </div>
+                <input type="hidden" name="rhythmus" id="rhythmusInput" />
+              </div>
+              <div class="form-group" style="margin-top:16px">
+                <label for="menge">Gewünschte Menge pro Lieferung</label>
+                <select id="menge" name="menge">
+                  <option value="">Bitte wählen</option>
+                  <option value="klein">Klein – ca. 1–2 Personen (Startpaket)</option>
+                  <option value="mittel">Mittel – 2–4 Personen (Familienpaket)</option>
+                  <option value="gross">Groß – 4+ Personen oder Vorrat</option>
+                  <option value="individuell">Individuell – ich schreibe es unten</option>
+                </select>
+              </div>
+
+              <!-- 5. Motivation / Warum -->
+              <div class="form-section-title">
+                <span>💬</span> Ihre Motivation
+              </div>
+              <div class="form-group">
+                <label for="warum">Warum möchten Sie ein SiegenGreen-Abo? <span class="required">*</span></label>
+                <textarea id="warum" name="warum" rows="4" placeholder="z. B. Ich koche leidenschaftlich gerne und möchte regional produzierte, pestizidfreie Zutaten verwenden ..." required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="wuensche">Sonderwünsche oder Anmerkungen (optional)</label>
+                <textarea id="wuensche" name="wuensche" rows="3" placeholder="z. B. keine Kräuter mit starkem Aroma, lieber Früchte als Blüten, Allergien ..."></textarea>
+              </div>
+
+              <!-- Consent -->
+              <div class="consent-row">
+                <input type="checkbox" id="consent" name="consent" required />
+                <label for="consent">
+                  Ich stimme der Verarbeitung meiner personenbezogenen Daten zur Bearbeitung dieser
+                  Voranmeldung zu. Meine Daten werden nicht an Dritte weitergegeben. Weitere Informationen
+                  finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>. <span class="required">*</span>
+                </label>
+              </div>
+
+              <button type="submit" class="abo-submit-btn" id="aboSubmitBtn">
+                <span id="aboSubmitText">Jetzt vormerken lassen</span>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9h14M10 3l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <p style="font-size:0.72rem; color:var(--text-muted); margin-top:12px; text-align:center;">
+                * Pflichtfelder · Dies ist eine unverbindliche Voranmeldung. Wir kontaktieren Sie, sobald das Abo-Modell startet.
+              </p>
+
+            </form>
+          </div>
+
+          <!-- Success state -->
+          <div class="abo-success" id="aboSuccess">
+            <div class="abo-success-icon">🌿</div>
+            <h2>Vielen Dank, Sie sind vorgemerkt!</h2>
+            <p>Wir haben Ihre Voranmeldung erhalten und melden uns, sobald unser B2C-Abo-Modell startet. Das SiegenGreen-Team freut sich auf Sie!</p>
+            <a href="index.html" class="btn btn-primary">Zurück zur Startseite</a>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="abo-sidebar">
+
+          <div class="abo-highlight-card">
+            <h3>🌱 Das erwartet Sie</h3>
+            <p>Frische Produkte aus unserer regionalen Vertical Farm – innerhalb von 24 h nach der Ernte bei Ihnen.</p>
+            <div class="price-preview">
+              <div class="price-row">Microgreens <strong>60–80 €/kg</strong></div>
+              <div class="price-row">Frische Kräuter <strong>15–25 €/kg</strong></div>
+              <div class="price-row">Essbare Blüten <strong>80–120 €/kg</strong></div>
+              <div class="price-row">Mix-Box <strong>ab ~12 €</strong></div>
+            </div>
+          </div>
+
+          <div class="abo-info-card">
+            <h3>📦 Liefergebiet</h3>
+            <p>Derzeit beliefern wir das Gebiet Siegen-Wittgenstein und Kreis Olpe. Weitere Regionen folgen.</p>
+          </div>
+
+          <div class="abo-info-card">
+            <h3>🔄 Flexibel & kündbar</h3>
+            <p>Das Abo ist jederzeit mit einer Frist von 14 Tagen kündbar. Keine Mindestlaufzeit, keine versteckten Kosten.</p>
+          </div>
+
+          <div class="abo-info-card">
+            <h3>♻️ Nachhaltig verpackt</h3>
+            <p>Alle B2C-Bestellungen werden in kompostierbaren Verpackungen geliefert – konsequent nachhaltig vom Anbau bis zur Haustür.</p>
+          </div>
+
+          <div class="abo-info-card">
+            <h3>❓ Fragen?</h3>
+            <p>Schreiben Sie uns jederzeit:</p>
+            <p style="margin-top:6px"><a href="mailto:abo@siegengreen.de" style="color:var(--green-dark); font-weight:600;">abo@siegengreen.de</a></p>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 32px 0;">
+        <p>&copy; 2026 SiegenGreen Vertical Farms GmbH &nbsp;·&nbsp;
+          <a href="impressum.html" style="color: rgba(255,255,255,0.6); text-decoration: underline;">Impressum</a> &nbsp;·&nbsp;
+          <a href="datenschutz.html" style="color: rgba(255,255,255,0.6); text-decoration: underline;">Datenschutz</a> &nbsp;·&nbsp;
+          <a href="agb.html" style="color: rgba(255,255,255,0.6); text-decoration: underline;">AGB</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Hamburger */
+    document.getElementById('hamburger').addEventListener('click', function () {
+      this.classList.toggle('active');
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    /* Frequency selector */
+    document.querySelectorAll('.freq-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.freq-option').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('rhythmusInput').value = btn.dataset.value;
+      });
+    });
+
+    /* Checkbox item visual toggle */
+    document.querySelectorAll('.checkbox-item input').forEach(cb => {
+      cb.addEventListener('change', () => {
+        cb.closest('.checkbox-item').classList.toggle('checked', cb.checked);
+      });
+    });
+
+    /* Form submit */
+    document.getElementById('aboForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      /* Basic validation */
+      const required = this.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        if (field.type === 'checkbox' && !field.checked) {
+          valid = false;
+          field.closest('.consent-row').style.borderColor = '#e05555';
+        } else if (field.type !== 'checkbox' && !field.value.trim()) {
+          valid = false;
+          field.style.borderColor = '#e05555';
+        } else {
+          if (field.type === 'checkbox') field.closest('.consent-row').style.borderColor = '';
+          else field.style.borderColor = '';
+        }
+      });
+
+      const checked = document.querySelectorAll('input[name="produkte"]:checked');
+      if (checked.length === 0) {
+        valid = false;
+        document.querySelector('.checkbox-grid').style.outline = '2px solid #e05555';
+      } else {
+        document.querySelector('.checkbox-grid').style.outline = '';
+      }
+
+      if (!valid) return;
+
+      const btn = document.getElementById('aboSubmitText');
+      btn.textContent = 'Wird gesendet …';
+      document.getElementById('aboSubmitBtn').disabled = true;
+
+      setTimeout(() => {
+        document.getElementById('aboFormWrap').querySelector('form').style.display = 'none';
+        document.getElementById('aboSuccess').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 1000);
+    });
+
+    /* Remove red border on input */
+    document.querySelectorAll('input, textarea, select').forEach(el => {
+      el.addEventListener('input', () => { el.style.borderColor = ''; });
+    });
+  </script>
+</body>
+</html>
