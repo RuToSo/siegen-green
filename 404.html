@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Seite nicht gefunden – SiegenGreen</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/css/fonts.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="/index.html" class="nav-logo">
+        <svg class="logo-icon" width="36" height="36" viewBox="0 0 100 100" fill="none">
+          <ellipse cx="50" cy="72" rx="30" ry="16" fill="#76C442"/>
+          <line x1="50" y1="72" x2="50" y2="20" stroke="#1E5C28" stroke-width="5" stroke-linecap="round"/>
+          <line x1="50" y1="55" x2="38" y2="40" stroke="#1E5C28" stroke-width="4" stroke-linecap="round"/>
+          <line x1="50" y1="55" x2="62" y2="40" stroke="#1E5C28" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="50" cy="18" rx="12" ry="16" fill="#76C442"/>
+          <ellipse cx="28" cy="36" rx="10" ry="14" fill="#76C442" transform="rotate(-30 28 36)"/>
+          <ellipse cx="72" cy="36" rx="10" ry="14" fill="#76C442" transform="rotate(30 72 36)"/>
+        </svg>
+        <span class="logo-text" style="color: var(--green-dark)">SiegenGreen</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/index.html#produkte" class="nav-link">Produkte</a></li>
+        <li><a href="/index.html#vorteile" class="nav-link">Vorteile</a></li>
+        <li><a href="/index.html#team" class="nav-link">Team</a></li>
+        <li><a href="/index.html#kontakt" class="btn btn-primary nav-cta">Jetzt anfragen</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="notfound" id="inhalt">
+    <div>
+      <span class="section-badge">Fehler 404</span>
+      <h1>Hier wächst leider nichts.</h1>
+      <p>Die Seite, die Sie suchen, gibt es nicht (mehr). Vielleicht finden Sie auf der Startseite, was Sie brauchen.</p>
+      <a href="/index.html" class="btn btn-primary">Zur Startseite</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 32px 0;">
+        <p>&copy; 2026 SiegenGreen Vertical Farms GmbH &nbsp;·&nbsp;
+          <a href="/impressum.html" style="color: rgba(255,255,255,0.6); text-decoration: underline;">Impressum</a> &nbsp;·&nbsp;
+          <a href="/datenschutz.html" style="color: rgba(255,255,255,0.6); text-decoration: underline;">Datenschutz</a> &nbsp;·&nbsp;
+          <a href="/agb.html" style="color: rgba(255,255,255,0.6); text-decoration: underline;">AGB</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function () {
+      this.classList.toggle('active');
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

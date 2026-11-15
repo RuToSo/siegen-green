@@ -1,3 +1,6 @@
+/* Nutzer, die weniger Bewegung wünschen (Systemeinstellung) */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 /* ─── Navbar scroll effect ──────────────────────────────────── */
 const navbar = document.getElementById('navbar');
 
@@ -9,15 +12,19 @@ window.addEventListener('scroll', () => {
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
+hamburger.setAttribute('aria-expanded', 'false');
+hamburger.setAttribute('aria-controls', 'navLinks');
 hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  navLinks.classList.toggle('open');
+  const open = navLinks.classList.toggle('open');
+  hamburger.classList.toggle('active', open);
+  hamburger.setAttribute('aria-expanded', String(open));
 });
 
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navLinks.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
   });
 });
 
@@ -36,6 +43,7 @@ document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 function animateCounter(el) {
   const target = parseInt(el.dataset.target, 10);
   const suffix = el.dataset.suffix || '';
+  if (reduceMotion) { el.textContent = target + suffix; return; }
   const duration = 1800;
   const start = performance.now();
 
@@ -65,7 +73,7 @@ document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(
 /* ─── Leaf particle generator ───────────────────────────────── */
 function createParticles() {
   const container = document.getElementById('heroParticles');
-  if (!container) return;
+  if (!container || reduceMotion) return;
 
   const leafPaths = [
     '<svg width="20" height="28" viewBox="0 0 20 28"><ellipse cx="10" cy="14" rx="9" ry="13" fill="currentColor"/></svg>',
@@ -95,28 +103,63 @@ function createParticles() {
 
 createParticles();
 
-/* ─── Contact form submission ───────────────────────────────── */
+/* ─── Contact form: fertige E-Mail im Mailprogramm ──────────── */
+/* Die Seite liegt auf GitHub Pages und hat keinen Server – die Anfrage
+   geht deshalb direkt aus dem Mailprogramm des Besuchers raus. */
 const contactForm = document.getElementById('contactForm');
 const toast = document.getElementById('toast');
+const MAIL = 'siegen-green@rutoso.de';
 
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    const btn = contactForm.querySelector('button[type="submit"] span');
-    btn.textContent = 'Wird gesendet…';
-
-    setTimeout(() => {
-      contactForm.reset();
-      btn.textContent = 'Nachricht senden';
-      showToast();
-    }, 1200);
+    const f = new FormData(contactForm);
+    const typ = contactForm.querySelector('#type');
+    const typText = typ && typ.value ? typ.options[typ.selectedIndex].text : '';
+    const body = [
+      f.get('message') || '',
+      '',
+      '—',
+      'Name / Unternehmen: ' + f.get('name'),
+      'E-Mail: ' + f.get('email'),
+      typText ? 'Ich bin: ' + typText : null,
+    ].filter(z => z !== null).join('\n');
+    window.location.href = 'mailto:' + MAIL +
+      '?subject=' + encodeURIComponent('Anfrage über die Webseite – ' + f.get('name')) +
+      '&body=' + encodeURIComponent(body);
+    showToast();
   });
 }
 
 function showToast() {
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 4000);
+  setTimeout(() => toast.classList.remove('show'), 6000);
+}
+
+/* „Anfragen“ an einer Produktkarte: Nachricht vorausfüllen */
+document.querySelectorAll('[data-produkt]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const msg = document.getElementById('message');
+    if (!msg) return;
+    const satz = 'Ich interessiere mich für: ' + btn.dataset.produkt + '.';
+    if (!msg.value.includes(satz)) msg.value = (satz + '\n' + msg.value).trim() + '\n';
+    setTimeout(() => msg.focus({ preventScroll: true }), 600);
+  });
+});
+
+/* Karte erst nach Klick laden (keine Verbindung zu OpenStreetMap vorher) */
+const mapBtn = document.getElementById('mapLoad');
+if (mapBtn) {
+  mapBtn.addEventListener('click', () => {
+    const wrap = document.getElementById('mapWrap');
+    const frame = document.createElement('iframe');
+    frame.title = 'Liefergebiet SiegenGreen – Siegen-Wittgenstein & Kreis Olpe';
+    frame.src = wrap.dataset.src;
+    frame.loading = 'lazy';
+    frame.referrerPolicy = 'no-referrer';
+    wrap.replaceChildren(frame);
+    wrap.classList.remove('map-consent');
+  });
 }
 
 /* ─── FAQ Accordion ─────────────────────────────────────────── */
@@ -135,28 +178,13 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
-/* ─── Cookie Consent ────────────────────────────────────────── */
-(function () {
-  const banner = document.getElementById('cookieBanner');
-  if (!banner) return;
-  if (!localStorage.getItem('cookieConsent')) {
-    setTimeout(() => banner.classList.add('show'), 800);
-  }
-  function dismiss(value) {
-    localStorage.setItem('cookieConsent', value);
-    banner.classList.remove('show');
-  }
-  document.getElementById('cookieAccept').addEventListener('click', () => dismiss('all'));
-  document.getElementById('cookieDecline').addEventListener('click', () => dismiss('necessary'));
-})();
-
 /* ─── Back to Top ───────────────────────────────────────────── */
 const backToTopBtn = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
   backToTopBtn.classList.toggle('visible', window.scrollY > 400);
 }, { passive: true });
 backToTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
 });
 
 /* ─── Active nav link on scroll ────────────────────────────── */

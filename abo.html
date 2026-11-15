@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>B2C Abo vormerken – SiegenGreen Vertical Farms</title>
   <meta name="description" content="Frische Microgreens, Kräuter und essbare Blüten direkt nach Hause – jetzt für das SiegenGreen Abo vormerken lassen." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <noscript><style>.fade-in-up{opacity:1!important;transform:none!important}</style></noscript>
   <style>
     /* ── Abo-page specific styles ── */
     .abo-hero {
@@ -351,6 +351,8 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
 
   <nav class="navbar scrolled" id="navbar">
     <div class="nav-container">
@@ -379,11 +381,12 @@
   </nav>
 
   <!-- ── HERO ── -->
+  <main id="inhalt">
   <div class="abo-hero">
     <div class="container">
       <span class="abo-hero-badge">🥬 B2C Subscription – demnächst verfügbar</span>
       <h1>Frische direkt<br /><span class="gradient-text">an Ihre Haustür.</span></h1>
-      <p>Melden Sie sich jetzt für unser Abo-Modell vor! Frische Microgreens, Kräuter und essbare Blüten – wöchentlich, zweiwöchentlich oder monatlich geliefert, solange vorrätig.</p>
+      <p>Merken Sie sich jetzt für unser Abo-Modell vor! Frische Microgreens, Kräuter und essbare Blüten – wöchentlich, zweiwöchentlich oder monatlich geliefert, solange vorrätig.</p>
       <div class="abo-hero-perks">
         <div class="abo-perk"><span class="abo-perk-icon">🌿</span> Pestizidfreie Produkte</div>
         <div class="abo-perk"><span class="abo-perk-icon">📦</span> Kompostierbare Verpackung</div>
@@ -551,7 +554,7 @@
           <div class="abo-success" id="aboSuccess">
             <div class="abo-success-icon">🌿</div>
             <h2>Vielen Dank, Sie sind vorgemerkt!</h2>
-            <p>Wir haben Ihre Voranmeldung erhalten und melden uns, sobald unser B2C-Abo-Modell startet. Das SiegenGreen-Team freut sich auf Sie!</p>
+            <p>Ihr E-Mail-Programm hat sich mit der fertigen Voranmeldung geöffnet. Bitte dort noch auf „Senden“ tippen. Wir melden uns, sobald unser B2C-Abo-Modell startet.</p>
             <a href="index.html" class="btn btn-primary">Zurück zur Startseite</a>
           </div>
         </div>
@@ -588,13 +591,15 @@
           <div class="abo-info-card">
             <h3>❓ Fragen?</h3>
             <p>Schreiben Sie uns jederzeit:</p>
-            <p style="margin-top:6px"><a href="mailto:abo@siegengreen.de" style="color:var(--green-dark); font-weight:600;">abo@siegengreen.de</a></p>
+            <p style="margin-top:6px"><a href="mailto:siegen-green@rutoso.de" style="color:var(--green-dark); font-weight:600;">siegen-green@rutoso.de</a></p>
           </div>
 
         </aside>
       </div>
     </div>
   </section>
+
+  </main>
 
   <footer class="footer">
     <div class="container">
@@ -662,14 +667,33 @@
       if (!valid) return;
 
       const btn = document.getElementById('aboSubmitText');
-      btn.textContent = 'Wird gesendet …';
+      btn.textContent = 'E-Mail wird vorbereitet …';
       document.getElementById('aboSubmitBtn').disabled = true;
 
+      /* Kein Server: Die Voranmeldung geht als fertige E-Mail über das Mailprogramm raus */
+      const f = new FormData(this);
+      const produkte = [...checked].map(c => c.closest('.checkbox-item').textContent.trim()).join(', ');
+      const zeilen = [
+        'Voranmeldung B2C-Abo',
+        '',
+        'Name: ' + f.get('vorname') + ' ' + f.get('nachname'),
+        'E-Mail: ' + f.get('email'),
+        f.get('telefon') ? 'Telefon: ' + f.get('telefon') : null,
+        'Adresse: ' + f.get('strasse') + ' ' + f.get('hausnummer') + ', ' + f.get('plz') + ' ' + f.get('ort'),
+        f.get('lieferzusatz') ? 'Hinweis: ' + f.get('lieferzusatz') : null,
+        'Produkte: ' + produkte,
+      ];
+      for (const [k, v] of f.entries()) {
+        if (['vorname','nachname','email','telefon','strasse','hausnummer','plz','ort','lieferzusatz','produkte'].includes(k)) continue;
+        if (typeof v === 'string' && v.trim() && v !== 'on') zeilen.push(k.charAt(0).toUpperCase() + k.slice(1) + ': ' + v.trim());
+      }
+      window.location.href = 'mailto:siegen-green@rutoso.de?subject=' + encodeURIComponent('Abo-Voranmeldung ' + f.get('vorname') + ' ' + f.get('nachname')) +
+        '&body=' + encodeURIComponent(zeilen.filter(z => z !== null).join('\n'));
       setTimeout(() => {
         document.getElementById('aboFormWrap').querySelector('form').style.display = 'none';
         document.getElementById('aboSuccess').classList.add('show');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 1000);
+      }, 600);
     });
 
     /* Remove red border on input */

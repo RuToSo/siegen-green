@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://siegen-green.rutoso.de/sitemap.xml
