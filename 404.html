@@ -47,6 +47,19 @@
       <h1>Hier wächst leider nichts.</h1>
       <p>Die Seite, die Sie suchen, gibt es nicht (mehr). Vielleicht finden Sie auf der Startseite, was Sie brauchen.</p>
       <a href="/index.html" class="btn btn-primary">Zur Startseite</a>
+
+      <section class="beet" aria-labelledby="beet-titel">
+        <h2 id="beet-titel">Oder lassen Sie hier etwas wachsen</h2>
+        <p class="beet-text">Tippen Sie auf eine Schale, um sie zu gießen. Trocknet eine aus, welken die Microgreens wieder. Sind alle sechs erntereif, ist die Runde geschafft.</p>
+        <div class="beet-feld" id="beet" aria-live="off"></div>
+        <p class="beet-stand" id="beet-stand" aria-live="polite">Erntereif: 0 von 6</p>
+        <button type="button" class="btn btn-primary" id="beet-los">Runde starten</button>
+        <div class="beet-ende" id="beet-ende" hidden>
+          <p><strong>Jetzt wächst doch was!</strong> <span id="beet-zeit"></span></p>
+          <a href="/index.html" class="btn btn-primary">Zur Startseite</a>
+          <button type="button" class="btn beet-nochmal" id="beet-nochmal">Nochmal</button>
+        </div>
+      </section>
     </div>
   </main>
 
@@ -62,6 +75,112 @@
     </div>
   </footer>
 
+  <style>
+    .beet { margin: 56px auto 0; max-width: 560px; background: var(--green-pale); border: 1px solid var(--green-subtle); border-radius: var(--radius-lg); padding: 28px 24px; }
+    .beet h2 { font-size: 1.35rem; margin: 0 0 8px; color: var(--green-dark); }
+    .beet .beet-text { font-size: 0.95rem; margin: 0 0 20px; }
+    .beet-feld { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
+    .schale { all: unset; box-sizing: border-box; cursor: pointer; background: var(--white); border: 1px solid var(--green-subtle); border-radius: var(--radius-md); padding: 8px 8px 10px; display: flex; flex-direction: column; align-items: center; gap: 6px; box-shadow: var(--shadow-sm); }
+    .schale:focus-visible { outline: 3px solid var(--green-primary); outline-offset: 2px; }
+    .schale:disabled { cursor: default; }
+    .schale svg { width: 100%; max-width: 120px; height: auto; }
+    .wasser { width: 80%; height: 6px; border-radius: 3px; background: var(--green-subtle); overflow: hidden; }
+    .wasser i { display: block; height: 100%; background: #3BA0D8; border-radius: 3px; }
+    .schale.trocken .wasser i { background: #E8A020; }
+    .schale.reif { border-color: var(--green-primary); background: var(--green-subtle); }
+    .beet-stand { font-size: 0.9rem; color: var(--text-muted); margin: 0 0 16px !important; }
+    .beet-ende { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .beet-ende[hidden], #beet-los[hidden] { display: none; }
+    .beet-ende p { flex-basis: 100%; margin: 0 0 4px !important; color: var(--text-dark) !important; }
+    .beet-nochmal { background: none; color: var(--green-dark); border-color: var(--green-dark); }
+    @media (max-width: 480px) { .beet { padding: 22px 14px; } .beet-feld { gap: 8px; } }
+    @media (prefers-reduced-motion: no-preference) { .schale { transition: transform .12s, background .2s; } .schale:active:not(:disabled) { transform: scale(.96); } }
+  </style>
+  <script>
+    (function () {
+      var feld = document.getElementById('beet'), stand = document.getElementById('beet-stand'), los = document.getElementById('beet-los');
+      var ende = document.getElementById('beet-ende');
+      var schalen = [], laeuft = false, letzt = 0, start = 0;
+      var GRUEN = '#76C442', DUNKEL = '#1E5C28', WELK = '#B9A35A';
+
+      function svg(i) {
+        // Schale mit Erde, darauf eine Reihe Microgreens; die Pflanzen wachsen über scaleY
+        var halme = '';
+        for (var k = 0; k < 7; k++) {
+          var x = 22 + k * 13, h = 30 + (k * 37 % 11);
+          halme += '<g><line x1="' + x + '" y1="70" x2="' + x + '" y2="' + (70 - h) + '" stroke="' + DUNKEL + '" stroke-width="2.4" stroke-linecap="round"/>' +
+            '<ellipse cx="' + (x - 5) + '" cy="' + (70 - h) + '" rx="6" ry="3.5" transform="rotate(-25 ' + (x - 5) + ' ' + (70 - h) + ')" class="blatt"/>' +
+            '<ellipse cx="' + (x + 5) + '" cy="' + (70 - h) + '" rx="6" ry="3.5" transform="rotate(25 ' + (x + 5) + ' ' + (70 - h) + ')" class="blatt"/></g>';
+        }
+        return '<svg viewBox="0 0 120 92" aria-hidden="true">' +
+          '<g class="pflanzen" style="transform-origin:60px 70px;transform:scaleY(0.05)">' + halme + '</g>' +
+          '<rect x="10" y="68" width="100" height="10" rx="3" fill="#5B4632"/>' +
+          '<path d="M6 76 H114 L106 90 H14 Z" fill="' + DUNKEL + '"/></svg>' +
+          '<span class="wasser"><i style="width:60%"></i></span>';
+      }
+
+      function aufbauen() {
+        feld.innerHTML = ''; schalen = [];
+        for (var i = 0; i < 6; i++) {
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'schale'; b.innerHTML = svg(i); b.disabled = true;
+          b.setAttribute('aria-label', 'Schale ' + (i + 1));
+          (function (s) { b.addEventListener('click', function () { if (laeuft && !s.reif) s.w = Math.min(100, s.w + 35); }); })(
+            schalen[i] = { el: b, w: 35 + Math.random() * 20, p: 0, rate: 9 + Math.random() * 5, reif: false });
+          feld.appendChild(b);
+        }
+        zeichnen();
+      }
+
+      function zeichnen() {
+        var fertig = 0;
+        schalen.forEach(function (s, i) {
+          var p = s.el.querySelector('.pflanzen'), trocken = s.w < 20 && !s.reif;
+          p.style.transform = 'scaleY(' + Math.max(0.05, s.p / 100) + ')';
+          p.querySelectorAll('.blatt').forEach(function (b) { b.setAttribute('fill', trocken ? WELK : GRUEN); });
+          s.el.querySelector('.wasser i').style.width = (s.reif ? 100 : s.w) + '%';
+          s.el.classList.toggle('trocken', trocken);
+          s.el.classList.toggle('reif', s.reif);
+          s.el.setAttribute('aria-label', 'Schale ' + (i + 1) + (s.reif ? ', erntereif' : ', ' + Math.round(s.p) + ' Prozent gewachsen' + (trocken ? ', trocken' : '')));
+          if (s.reif) fertig++;
+        });
+        stand.textContent = 'Erntereif: ' + fertig + ' von 6';
+        return fertig;
+      }
+
+      function schritt(t) {
+        if (!laeuft) return;
+        var dt = Math.min(0.05, (t - letzt) / 1000); letzt = t;
+        schalen.forEach(function (s) {
+          if (s.reif) return;
+          s.w = Math.max(0, s.w - s.rate * dt);
+          if (s.w > 20) s.p += 7.5 * dt; else if (s.w <= 0) s.p = Math.max(0, s.p - 8 * dt);
+          if (s.p >= 100) { s.p = 100; s.reif = true; s.el.disabled = true; }
+        });
+        if (zeichnen() === 6) {
+          laeuft = false;
+          document.getElementById('beet-zeit').textContent = 'Alles erntereif nach ' + Math.round((t - start) / 1000) + ' Sekunden.';
+          ende.hidden = false; ende.querySelector('a').focus();
+          return;
+        }
+        requestAnimationFrame(schritt);
+      }
+
+      function starten() {
+        aufbauen();
+        schalen.forEach(function (s) { s.el.disabled = false; });
+        ende.hidden = true; los.hidden = true;
+        laeuft = true; letzt = start = performance.now();
+        schalen[0].el.focus();
+        requestAnimationFrame(schritt);
+      }
+
+      los.addEventListener('click', starten);
+      document.getElementById('beet-nochmal').addEventListener('click', starten);
+      document.addEventListener('visibilitychange', function () { if (!document.hidden && laeuft) letzt = performance.now(); });
+      aufbauen();
+    })();
+  </script>
   <script>
     document.getElementById('hamburger').addEventListener('click', function () {
       this.classList.toggle('active');
