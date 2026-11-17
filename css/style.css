@@ -1688,3 +1688,6 @@ body { padding-top: var(--hinweis-h); }
   .projekt-hinweis .ph-lang { display: none; }
   .projekt-hinweis .ph-kurz { display: inline; }
 }
+
+/* Weg zurück zu rutoso.de: auf schmalen Handys passt „Mehr“ nicht mehr in die Leiste (Impressum steht unten) */
+@media (max-width: 480px) { .projekt-hinweis .ph-mehr { display: none; } }
